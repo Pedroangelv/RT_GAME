@@ -12,5 +12,11 @@ A simple platform game inspired in the Real Team (Top manias, Tattiextreme, Sien
   _________  ____/ /__ 
  / ___/ __ \/ __  / _ \
 / /__/ /_/ / /_/ /  __/
-\___/\____/\__,_/\___/ 
+\___/\____/\__,_/\___/
+```
                        
+---
+Contribuciones
+---
+Sprite y animaciones de douglas por Enmuterrible YT:https://www.youtube.com/@enmuterrible
+Tilemap01 por kenney-assets https://kenney-assets.itch.io/rpg-urban-kit
