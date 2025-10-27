@@ -1,0 +1,64 @@
+[gd_scene load_steps=11 format=3 uid="uid://cne3vsc5rrgxi"]
+
+[ext_resource type="Script" uid="uid://c4kx1u23hx4kr" path="res://doug.gd" id="1_tlsat"]
+[ext_resource type="Texture2D" uid="uid://btncjedvqbnbq" path="res://Assets/douglasIdle01.png" id="2_126hf"]
+[ext_resource type="Texture2D" uid="uid://dyywri6cyc8ll" path="res://Assets/douglasIdle02.png" id="3_rxyky"]
+[ext_resource type="Texture2D" uid="uid://b5t55f5ru61yo" path="res://Assets/douglasIdle03.png" id="4_wyf8j"]
+[ext_resource type="Texture2D" uid="uid://32lpj7y1ejt" path="res://Assets/douglasJump.png" id="5_d4uyr"]
+[ext_resource type="Texture2D" uid="uid://b5dl888iynpql" path="res://Assets/douglasRunning01.png" id="6_ghkg2"]
+[ext_resource type="Texture2D" uid="uid://dd0tlv8gqalg8" path="res://Assets/douglasRunning02.png" id="7_ubt6x"]
+[ext_resource type="Texture2D" uid="uid://c78us2qv6jplm" path="res://Assets/douglasRunning03.png" id="8_ixd2t"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b3ihw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_126hf")
+}, {
+"duration": 0.3,
+"texture": ExtResource("3_rxyky")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_wyf8j")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_d4uyr")
+}],
+"loop": true,
+"name": &"Jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_ghkg2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ubt6x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ixd2t")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 6.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iec8k"]
+radius = 7.0
+height = 20.0
+
+[node name="Doug" type="CharacterBody2D"]
+script = ExtResource("1_tlsat")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_b3ihw")
+animation = &"Run"
+frame_progress = 0.382183
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_iec8k")
