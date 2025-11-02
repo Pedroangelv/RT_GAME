@@ -1,25 +1,80 @@
 extends CharacterBody2D
+# --- CONFIGURACIÓN ---
+# Coyote time
+var coyote_time := 0.12
+var coyote_timer := 0.0
+var has_jumped := false
 
+# Jump buffer
+var jump_buffer_time := 0.25
+var jump_buffer_timer := 0.0
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+# Estado
+var is_dead := false
+var is_jumping := false
 
+# Físicas
+const SPEED := 200.0
+const JUMP_VELOCITY := -350.0
+const SHORT_HOP_MULTIPLIER := 0.5
+
+#Jugador
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
+	if is_dead:
+		velocity += get_gravity() * delta
+		move_and_slide()
+		return
+
+	# Aplicar gravedad normal
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+	else:
+		is_jumping = false
 
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	# Coyote time
+	if is_on_floor():
+		coyote_timer = coyote_time
+		has_jumped = false
+	else:
+		coyote_timer = max(0.0, coyote_timer - delta)
+
+	# Jump buffer
+	if Input.is_action_just_pressed("ui_accept"):
+		jump_buffer_timer = jump_buffer_time
+	else:
+		jump_buffer_timer = max(0.0, jump_buffer_timer - delta)
+
+	# Saltar
+	if (is_on_floor() or coyote_timer > 0) and jump_buffer_timer > 0 and not has_jumped:
 		velocity.y = JUMP_VELOCITY
+		is_jumping = true
+		has_jumped = true
+		jump_buffer_timer = 0.0
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
+	# Salto corto
+	if Input.is_action_just_released("ui_accept") and velocity.y < 0:
+		velocity.y *= SHORT_HOP_MULTIPLIER
+
+	# Movimiento lateral
 	var direction := Input.get_axis("ui_left", "ui_right")
-	if direction:
+	if direction != 0:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+	# --- CORNER CORRECTION ---
+	# Si el jugador golpea el techo (solo mientras sube)
 
 	move_and_slide()
+	update_animation(direction)
+func update_animation(direction: float) -> void:
+	if is_dead:
+		return
+	if is_jumping:
+		sprite.play("Jump")
+	elif direction != 0:
+		sprite.flip_h = (direction < 0)
+		sprite.play("Run")
+	else:
+		sprite.play("Idle")

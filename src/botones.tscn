@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://b2hxyffcjn02d"]
+
+[node name="Botones" type="CanvasLayer"]
+
+[node name="Izquierda" type="TouchScreenButton" parent="."]
+
+[node name="Derecha" type="TouchScreenButton" parent="."]
+
+[node name="Salto" type="TouchScreenButton" parent="."]
