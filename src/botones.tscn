@@ -1,9 +1,28 @@
-[gd_scene format=3 uid="uid://b2hxyffcjn02d"]
+[gd_scene load_steps=4 format=3 uid="uid://b2hxyffcjn02d"]
+
+[ext_resource type="Texture2D" uid="uid://tqwe7fh0hs68" path="res://Assets/Buttons/left.png" id="1_s3sib"]
+[ext_resource type="Texture2D" uid="uid://bjgejo5fr5ww8" path="res://Assets/Buttons/Right.png" id="2_ldobb"]
+[ext_resource type="Texture2D" uid="uid://be2tjllvvi86m" path="res://Assets/Buttons/UP.png" id="3_s1lu4"]
 
 [node name="Botones" type="CanvasLayer"]
 
 [node name="Izquierda" type="TouchScreenButton" parent="."]
+position = Vector2(11, 162)
+scale = Vector2(3.14286, 3.66667)
+texture_normal = ExtResource("1_s3sib")
+action = "ui_left"
+visibility_mode = 1
 
 [node name="Derecha" type="TouchScreenButton" parent="."]
+position = Vector2(70, 162)
+scale = Vector2(3.21429, 3.66667)
+texture_normal = ExtResource("2_ldobb")
+action = "ui_right"
+visibility_mode = 1
 
 [node name="Salto" type="TouchScreenButton" parent="."]
+position = Vector2(280, 147)
+scale = Vector2(3.5625, 3.11765)
+texture_normal = ExtResource("3_s1lu4")
+action = "ui_accept"
+visibility_mode = 1

@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=4 uid="uid://d2aog2l4gkqma"]
+[gd_scene load_steps=6 format=4 uid="uid://d2aog2l4gkqma"]
 
 [ext_resource type="Texture2D" uid="uid://co7cx0idree0h" path="res://Assets/kenneyTilemap/Tilemap/tilemap.png" id="1_hbghi"]
 [ext_resource type="PackedScene" uid="uid://cne3vsc5rrgxi" path="res://doug.tscn" id="2_hn12h"]
+[ext_resource type="PackedScene" uid="uid://b2hxyffcjn02d" path="res://botones.tscn" id="3_hn12h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ihfcg"]
 texture = ExtResource("1_hbghi")
@@ -578,3 +579,5 @@ tile_set = SubResource("TileSet_rka8t")
 position = Vector2(16, 112)
 
 [node name="Camera2D" type="Camera2D" parent="TileMapLayer/Doug"]
+
+[node name="Botones" parent="." instance=ExtResource("3_hn12h")]
