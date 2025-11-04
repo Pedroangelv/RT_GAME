@@ -18,8 +18,8 @@ A simple platform game inspired in the Real Team (Top manias, Tattiextreme, Sien
 ---
 Contribuciones
 ---
-Sprite y animaciones de douglas por Enmuterrible YT:https://www.youtube.com/@enmuterrible
-Tilemap01 por kenney-assets https://kenney-assets.itch.io/rpg-urban-kit
-TilemapCity por GrafxKid https://opengameart.org/content/city-mega-pack
-City Background por TokyoGeisha https://opengameart.org/content/ruined-city-background
-Gamepad buttons por greatdocbrown https://greatdocbrown.itch.io/gamepad-ui
+- Sprite y animaciones de douglas por Enmuterrible YT:https://www.youtube.com/@enmuterrible
+- Tilemap01 por kenney-assets https://kenney-assets.itch.io/rpg-urban-kit
+- TilemapCity por GrafxKid https://opengameart.org/content/city-mega-pack
+- City Background por TokyoGeisha https://opengameart.org/content/ruined-city-background
+- Gamepad buttons por greatdocbrown https://greatdocbrown.itch.io/gamepad-ui
