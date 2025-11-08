@@ -14,7 +14,7 @@ A simple platform game inspired in the Real Team (Top manias, Tattiextreme, Sien
 / /__/ /_/ / /_/ /  __/
 \___/\____/\__,_/\___/
 ```
-                       
+Dejando ya tanto ingles, voy diciendo que soy casi tan rapido desarrollando como Yanderedev                    
 ---
 Contribuciones
 ---
