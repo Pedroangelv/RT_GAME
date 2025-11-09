@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://dlbxxusaf5xxf"]
+
+[ext_resource type="Script" uid="uid://dpletawcftjpk" path="res://sandia.gd" id="1_0ebmx"]
+[ext_resource type="Texture2D" uid="uid://b5cos4etflr5n" path="res://Assets/Watermelon.png" id="2_4e17v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ebmx"]
+size = Vector2(15, 7)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_paxcl"]
+
+[node name="Sandia" type="CharacterBody2D"]
+script = ExtResource("1_0ebmx")
+
+[node name="HeadArea" type="Area2D" parent="."]
+position = Vector2(0, -7)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HeadArea"]
+position = Vector2(0.5, -1.5)
+shape = SubResource("RectangleShape2D_0ebmx")
+debug_color = Color(0.36694, 0.61612, 0, 0.42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -2)
+shape = SubResource("CircleShape2D_paxcl")
+debug_color = Color(0.988295, 0, 0.303592, 0.42)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_4e17v")

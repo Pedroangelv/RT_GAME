@@ -52,7 +52,7 @@ animations = [{
 radius = 7.0
 height = 20.0
 
-[node name="Doug" type="CharacterBody2D"]
+[node name="Doug" type="CharacterBody2D" groups=["jugador"]]
 script = ExtResource("1_tlsat")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

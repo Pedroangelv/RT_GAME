@@ -10,6 +10,7 @@
 position = Vector2(11, 162)
 scale = Vector2(3.14286, 3.66667)
 texture_normal = ExtResource("1_s3sib")
+passby_press = true
 action = "ui_left"
 visibility_mode = 1
 
@@ -17,6 +18,7 @@ visibility_mode = 1
 position = Vector2(70, 162)
 scale = Vector2(3.21429, 3.66667)
 texture_normal = ExtResource("2_ldobb")
+passby_press = true
 action = "ui_right"
 visibility_mode = 1
 
@@ -24,5 +26,6 @@ visibility_mode = 1
 position = Vector2(280, 147)
 scale = Vector2(3.5625, 3.11765)
 texture_normal = ExtResource("3_s1lu4")
+passby_press = true
 action = "ui_accept"
 visibility_mode = 1
