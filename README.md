@@ -14,7 +14,10 @@ A simple platform game inspired in the Real Team (Top manias, Tattiextreme, Sien
 / /__/ /_/ / /_/ /  __/
 \___/\____/\__,_/\___/
 ```
-Dejando ya tanto ingles, voy diciendo que soy casi tan rapido desarrollando como Yanderedev                    
+Dejando ya tanto ingles, voy diciendo que soy casi tan rapido desarrollando como Yanderedev
+
+Dejo algo de documentacion(Hecha por IA):
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/Pedroangelv/RT_GAME)
 ---
 Contribuciones
 ---
