@@ -1,10 +1,12 @@
 extends CharacterBody2D
 
-class_name Enemy
+class_name Enemy # poner la variable rotation del sprite en 0
+				 # si el sprite no va a
 
 
 @export var velocidad: float = 60.0
 @export var gravedad: float = 900.0
+@onready var sprite: Sprite2D = $Sprite2D
 
 var direccion: int = -1
 var vivo: bool = true
@@ -17,13 +19,15 @@ func _ready():
 func _physics_process(delta):
 	if not vivo:
 		return
-
+	
 	# aplicar gravedad
 	if not is_on_floor():
 		velocity.y += gravedad * delta
 	else:
 		velocity.y = 0
-
+	
+	#rotacion
+	sprite.rotation += delta * 3 * direccion
 	# movimiento horizontal
 	velocity.x = velocidad * direccion
 	move_and_slide()
@@ -39,17 +43,26 @@ func _on_head_area_body_entered(body):
 	# si el jugador le cae encima, el enemigo muere
 	if vivo and body.is_in_group("jugador"):
 		_morir()
-		# opcional: hacer rebotar al jugador un poco
-		if body.has_method("rebote_en_enemigo"):
-			body.rebote_en_enemigo()
+		#hacer rebotar al jugador un poco
+		
+		body.rebote_en_enemigo()
 
 func _morir():
+	$interaction/CollisionShape2D.set_deferred("disabled", true)
 	vivo = false
 	velocity = Vector2.ZERO
-	$CollisionShape2D.disabled = true
-	head_area.monitoring = false
+	$CollisionShape2D.set_deferred("disabled", true)
+	head_area.set_deferred("monitoring", false)
+	
 	# animación de muerte simple (cae)
 	var tween = create_tween()
 	tween.tween_property(self, "position:y", position.y - 10, 0.1)
 	tween.tween_property(self, "position:y", position.y + 40, 0.4)
 	tween.tween_callback(Callable(self, "queue_free"))
+
+
+func _on_interaction_body_entered(body: Node2D) -> void:
+	if not vivo:
+		return
+	if body.is_in_group("jugador"):
+		body.dead()

@@ -601,11 +601,17 @@ tile_map_data = PackedByteArray("AAD8/wgAAQABAAAAAAD9/wgAAQABAAAAAAD+/wgAAQABAAA
 tile_set = SubResource("TileSet_rka8t")
 
 [node name="Doug" parent="MundoTiles" instance=ExtResource("2_hn12h")]
-position = Vector2(303, 53)
+position = Vector2(-43, 113)
 
 [node name="Camera2D" type="Camera2D" parent="MundoTiles/Doug"]
 
 [node name="Sandia" parent="MundoTiles" instance=ExtResource("3_ihfcg")]
-position = Vector2(189, 73)
+position = Vector2(511, 45)
+
+[node name="Sandia2" parent="MundoTiles" instance=ExtResource("3_ihfcg")]
+position = Vector2(100, 32)
+
+[node name="Sandia3" parent="MundoTiles" instance=ExtResource("3_ihfcg")]
+position = Vector2(213, 63)
 
 [node name="Botones" parent="." instance=ExtResource("3_hn12h")]

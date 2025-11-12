@@ -48,9 +48,7 @@ animations = [{
 "speed": 6.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iec8k"]
-radius = 7.0
-height = 20.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tlsat"]
 
 [node name="Doug" type="CharacterBody2D" groups=["jugador"]]
 script = ExtResource("1_tlsat")
@@ -61,4 +59,4 @@ animation = &"Run"
 frame_progress = 0.382183
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_iec8k")
+shape = SubResource("RectangleShape2D_tlsat")

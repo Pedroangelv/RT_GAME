@@ -65,11 +65,26 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	# --- CORNER CORRECTION ---
 	# Si el jugador golpea el techo (solo mientras sube)
-
 	move_and_slide()
 	update_animation(direction)
+
+func dead():
+	is_dead = true
+	$CollisionShape2D.disabled = true
+	get_tree().reload_current_scene()
+	
+
+func rebote_en_enemigo():
+	# Si el jugador está cayendo, reiniciamos su impulso hacia arriba
+	if velocity.y > 0:
+		velocity.y = JUMP_VELOCITY * 0.6  # rebote con 60% de la fuerza del salto normal
+	else:
+		velocity.y = JUMP_VELOCITY * 0.5  # si venía subiendo, rebote un poco más suave
+
+
 func update_animation(direction: float) -> void:
 	if is_dead:
+		sprite.play("Idle")
 		return
 	if is_jumping:
 		sprite.play("Jump")

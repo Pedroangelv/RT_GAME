@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0jocm45sorlv"]
+
+[ext_resource type="Script" uid="uid://b7uwa07kv5ams" path="res://rodante.gd" id="1_f2w8j"]
+[ext_resource type="Texture2D" uid="uid://b5cos4etflr5n" path="res://Assets/Watermelon.png" id="1_r01sq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f2w8j"]
+radius = 9.0
+height = 18.0
+
+[node name="Rodante" type="RigidBody2D"]
+script = ExtResource("1_f2w8j")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_r01sq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -1)
+shape = SubResource("CapsuleShape2D_f2w8j")
+debug_color = Color(0.638728, 0.338822, 1, 0.42)

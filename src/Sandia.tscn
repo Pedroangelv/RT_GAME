@@ -1,28 +1,44 @@
-[gd_scene load_steps=5 format=3 uid="uid://dlbxxusaf5xxf"]
+[gd_scene load_steps=6 format=3 uid="uid://dlbxxusaf5xxf"]
 
 [ext_resource type="Script" uid="uid://dpletawcftjpk" path="res://sandia.gd" id="1_0ebmx"]
 [ext_resource type="Texture2D" uid="uid://b5cos4etflr5n" path="res://Assets/Watermelon.png" id="2_4e17v"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ebmx"]
-size = Vector2(15, 7)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4e17v"]
+size = Vector2(18, 15)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_paxcl"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ebmx"]
+size = Vector2(13, 5)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0ebmx"]
+radius = 7.0
+height = 14.0
 
 [node name="Sandia" type="CharacterBody2D"]
+floor_block_on_wall = false
 script = ExtResource("1_0ebmx")
+
+[node name="interaction" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interaction"]
+position = Vector2(1, 0.5)
+shape = SubResource("RectangleShape2D_4e17v")
+debug_color = Color(0.988295, 0, 0.303592, 0.42)
 
 [node name="HeadArea" type="Area2D" parent="."]
 position = Vector2(0, -7)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HeadArea"]
-position = Vector2(0.5, -1.5)
+position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_0ebmx")
+one_way_collision_margin = 0.0
 debug_color = Color(0.36694, 0.61612, 0, 0.42)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, -2)
-shape = SubResource("CircleShape2D_paxcl")
-debug_color = Color(0.988295, 0, 0.303592, 0.42)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_4e17v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("CapsuleShape2D_0ebmx")
+debug_color = Color(0.988295, 0, 0.303592, 0.42)
+
+[connection signal="body_entered" from="interaction" to="." method="_on_interaction_body_entered"]
