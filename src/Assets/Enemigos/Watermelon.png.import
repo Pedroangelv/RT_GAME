@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btncjedvqbnbq"
-path="res://.godot/imported/douglasIdle01.png-20ac1b1e0dd780bbe07ec09b249fb418.ctex"
+uid="uid://b5cos4etflr5n"
+path="res://.godot/imported/Watermelon.png-ac6762f89212e41043f4a9101bb68716.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/douglasIdle01.png"
-dest_files=["res://.godot/imported/douglasIdle01.png-20ac1b1e0dd780bbe07ec09b249fb418.ctex"]
+source_file="res://Assets/Enemigos/Watermelon.png"
+dest_files=["res://.godot/imported/Watermelon.png-ac6762f89212e41043f4a9101bb68716.ctex"]
 
 [params]
 

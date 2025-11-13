@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dlbxxusaf5xxf"]
 
-[ext_resource type="Script" uid="uid://dpletawcftjpk" path="res://sandia.gd" id="1_0ebmx"]
-[ext_resource type="Texture2D" uid="uid://b5cos4etflr5n" path="res://Assets/Watermelon.png" id="2_4e17v"]
+[ext_resource type="Script" uid="uid://dpletawcftjpk" path="res://Script/sandia.gd" id="1_0ebmx"]
+[ext_resource type="Texture2D" uid="uid://b5cos4etflr5n" path="res://Assets/Enemigos/Watermelon.png" id="2_4e17v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4e17v"]
 size = Vector2(18, 15)
@@ -37,7 +37,6 @@ debug_color = Color(0.36694, 0.61612, 0, 0.42)
 texture = ExtResource("2_4e17v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -1)
 shape = SubResource("CapsuleShape2D_0ebmx")
 debug_color = Color(0.988295, 0, 0.303592, 0.42)
 

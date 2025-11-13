@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dd0tlv8gqalg8"
-path="res://.godot/imported/douglasRunning02.png-82cf52b1eab2fda2eb120c8e7c288c05.ctex"
+uid="uid://c78us2qv6jplm"
+path="res://.godot/imported/douglasRunning03.png-a3452c67a6b4bc6df638080268f96058.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/douglasRunning02.png"
-dest_files=["res://.godot/imported/douglasRunning02.png-82cf52b1eab2fda2eb120c8e7c288c05.ctex"]
+source_file="res://Assets/Douglas/douglasRunning03.png"
+dest_files=["res://.godot/imported/douglasRunning03.png-a3452c67a6b4bc6df638080268f96058.ctex"]
 
 [params]
 

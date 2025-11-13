@@ -93,3 +93,7 @@ func update_animation(direction: float) -> void:
 		sprite.play("Run")
 	else:
 		sprite.play("Idle")
+
+
+func _on_pitfall_body_entered(body: Node2D) -> void:
+	dead()

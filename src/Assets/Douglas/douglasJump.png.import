@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dyywri6cyc8ll"
-path="res://.godot/imported/douglasIdle02.png-da642770694537a23a5ed978eb854135.ctex"
+uid="uid://32lpj7y1ejt"
+path="res://.godot/imported/douglasJump.png-56cfbfabadbe02b71a80642853c84f75.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/douglasIdle02.png"
-dest_files=["res://.godot/imported/douglasIdle02.png-da642770694537a23a5ed978eb854135.ctex"]
+source_file="res://Assets/Douglas/douglasJump.png"
+dest_files=["res://.godot/imported/douglasJump.png-56cfbfabadbe02b71a80642853c84f75.ctex"]
 
 [params]
 
