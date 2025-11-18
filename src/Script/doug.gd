@@ -70,7 +70,8 @@ func _physics_process(delta: float) -> void:
 
 func dead():
 	is_dead = true
-	$CollisionShape2D.disabled = true
+	$CollisionShape2D.set_deferred("disabled", true)
+	queue_free()
 	get_tree().reload_current_scene()
 	
 
@@ -96,4 +97,8 @@ func update_animation(direction: float) -> void:
 
 
 func _on_pitfall_body_entered(body: Node2D) -> void:
-	dead()
+	if body.has_method("dead"):
+		body.dead()
+	else:
+		body.queue_free()
+		

@@ -48,7 +48,7 @@ func _on_head_area_body_entered(body):
 		body.rebote_en_enemigo()
 
 func _morir():
-	$interaction/CollisionShape2D.set_deferred("disabled", true)
+	$interaction/CollisionPolygon2D.set_deferred("disabled", true)
 	vivo = false
 	velocity = Vector2.ZERO
 	$CollisionShape2D.set_deferred("disabled", true)
