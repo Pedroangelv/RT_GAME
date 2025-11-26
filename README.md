@@ -26,3 +26,5 @@ Contribuciones
 - TilemapCity por GrafxKid https://opengameart.org/content/city-mega-pack
 - City Background por TokyoGeisha https://opengameart.org/content/ruined-city-background
 - Gamepad buttons por greatdocbrown https://greatdocbrown.itch.io/gamepad-ui
+- Pixel art city by Gandalfhardcore https://gandalfhardcore.itch.io/free-pixel-art-sidescroller-asset-pack-32x32-city
+- Retro city assets by mariaparragames https://mariaparragames.itch.io/free-retro-city-assetpack
