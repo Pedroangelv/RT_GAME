@@ -27,5 +27,5 @@ position = Vector2(280, 147)
 scale = Vector2(3.5625, 3.11765)
 texture_normal = ExtResource("3_s1lu4")
 passby_press = true
-action = "ui_accept"
+action = "jump"
 visibility_mode = 1
