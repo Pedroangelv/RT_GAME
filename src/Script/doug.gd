@@ -41,7 +41,7 @@ func _physics_process(delta: float) -> void:
 		coyote_timer = max(0.0, coyote_timer - delta)
 
 	# Jump buffer
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("jump"):
 		jump_buffer_timer = jump_buffer_time
 	else:
 		jump_buffer_timer = max(0.0, jump_buffer_timer - delta)
@@ -54,7 +54,7 @@ func _physics_process(delta: float) -> void:
 		jump_buffer_timer = 0.0
 
 	# Salto corto
-	if Input.is_action_just_released("ui_accept") and velocity.y < 0:
+	if Input.is_action_just_released("jump") and velocity.y < 0:
 		velocity.y *= SHORT_HOP_MULTIPLIER
 
 	# Movimiento lateral
