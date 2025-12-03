@@ -21,7 +21,30 @@ Es un proyecto experimental hecho en Blazium Engine un fork de Godot Engine 4.3.
 Dejo algo de documentacion(Hecha por IA)(No es la oficial):
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/Pedroangelv/RT_GAME)
 ---
-🚀 Descargar y modificar el proyecto (Este proyecto es personal y con el fin de mi propia enseñanza, cualquier persona que quiera aportar al proyecto abra un nuevo repositorio o haga un fork del proyecto actual, apenas se manejar subir mi propio proyecto no quiero y no me creo capaz de estar en un proyecto colectivo con mi experiencia actual, por cuestiones de la licencia del codigo del proyecto si vas hacer una nueva version del juego haciendo un fork de este repositorio tienes que usar la licencia GPL 3.0 )
+🚀 Descargar, estudiar y modificar el proyecto
+
+Este proyecto es personal, hecho con fines educativos.
+Si querés:
+
+Aportar
+
+Revisar
+
+Cacharrear
+
+Hacer tu propia versión
+
+Tenés dos caminos:
+
+✔️ Fork del proyecto
+
+Si vas a crear una versión nueva del juego usando este repo, por la licencia del código (GPL 3.0) estás obligado a mantener la misma licencia.
+
+✔️ Nuevo repositorio desde cero
+
+También podés llevarte ideas, estructuras y mejorar por tu lado.
+
+🧩 Cómo abrir el proyecto
 
 Instala Godot 4.x o Blazium (la versión estable que tengas).
 
@@ -33,6 +56,8 @@ En Godot, importa el archivo project.godot del archivo RT_GAME/src
 
 Si explota, respirá profundo y probá otra vez.
 .
+
+-Las builds del juego estan en la seccion releases de la derecha
 
 🧠 Controles
 
