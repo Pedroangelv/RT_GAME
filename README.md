@@ -57,10 +57,23 @@ Plan futuro: 3 niveles por cada integrante y un nivel secreto de cada uno(Solo t
 Si funciona: felicitaciones, sos oficialmente más rápido que el desarrollador.
 Contribuciones
 ---
-- Sprite y animaciones de douglas por Enmuterrible YT:https://www.youtube.com/@enmuterrible
-- Tilemap01 por kenney-assets https://kenney-assets.itch.io/rpg-urban-kit
-- TilemapCity por GrafxKid https://opengameart.org/content/city-mega-pack
-- City Background por TokyoGeisha https://opengameart.org/content/ruined-city-background
-- Gamepad buttons por greatdocbrown https://greatdocbrown.itch.io/gamepad-ui
-- Pixel art city by Gandalfhardcore https://gandalfhardcore.itch.io/free-pixel-art-sidescroller-asset-pack-32x32-city
-- Retro city assets by mariaparragames https://mariaparragames.itch.io/free-retro-city-assetpack
+Sprite y animaciones de douglas por Enmuterrible(Ahora kauhea4)
+YT:https://www.youtube.com/@kauhea4/
+
+Tilemap 01 → Kenney Assets
+https://kenney-assets.itch.io/rpg-urban-kit
+
+Tilemap City → GrafxKid
+https://opengameart.org/content/city-mega-pack
+
+City Background → TokyoGeisha
+https://opengameart.org/content/ruined-city-background
+
+Gamepad Buttons → greatdocbrown
+https://greatdocbrown.itch.io/gamepad-ui
+
+Pixel Art City → Gandalfhardcore
+https://gandalfhardcore.itch.io/free-pixel-art-sidescroller-asset-pack-32x32-city
+
+Retro City Assets → mariaparragames
+https://mariaparragames.itch.io/free-retro-city-assetpack
