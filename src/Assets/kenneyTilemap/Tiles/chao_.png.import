@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3dv6jf7yosds"
-path="res://.godot/imported/City Background.png-d73015602b075c0d993c64ae8e83fd12.ctex"
+uid="uid://b5mxgicvipikr"
+path="res://.godot/imported/chao_.png-4a987b3cfcb2b71fa87ada2fc8de196a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/CityAssets/City Background.png"
-dest_files=["res://.godot/imported/City Background.png-d73015602b075c0d993c64ae8e83fd12.ctex"]
+source_file="res://Assets/kenneyTilemap/Tiles/chao_.png"
+dest_files=["res://.godot/imported/chao_.png-4a987b3cfcb2b71fa87ada2fc8de196a.ctex"]
 
 [params]
 

@@ -1,4 +1,6 @@
 extends CharacterBody2D
+
+class_name Player
 # --- CONFIGURACIÓN ---
 # Coyote time
 var coyote_time := 0.12
@@ -72,7 +74,7 @@ func dead():
 	is_dead = true
 	$CollisionShape2D.set_deferred("disabled", true)
 	queue_free()
-	get_tree().reload_current_scene()
+	get_tree().call_deferred("reload_current_scene")
 	
 
 func rebote_en_enemigo():

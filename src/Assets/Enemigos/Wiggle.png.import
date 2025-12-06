@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btdjoao77jhs1"
-path="res://.godot/imported/tileset_city_free.png-b148fb6a5721d4cf640fa14bd9eaf821.ctex"
+uid="uid://dawa5c81fwubk"
+path="res://.godot/imported/Wiggle.png-38fbd0dc5658bbda01e40a4c759bbfc5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Douglas/tileset_city_free.png"
-dest_files=["res://.godot/imported/tileset_city_free.png-b148fb6a5721d4cf640fa14bd9eaf821.ctex"]
+source_file="res://Assets/Enemigos/Wiggle.png"
+dest_files=["res://.godot/imported/Wiggle.png-38fbd0dc5658bbda01e40a4c759bbfc5.ctex"]
 
 [params]
 

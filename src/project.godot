@@ -13,7 +13,7 @@ config_version=5
 config/name="RT_GAME"
 run/main_scene="uid://d2aog2l4gkqma"
 config/features=PackedStringArray("4.3.2", "GL Compatibility")
-config/icon="uid://dspjx4ncfaeo2"
+config/icon="uid://dgdc6bkv8kcxs"
 
 [display]
 

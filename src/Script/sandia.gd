@@ -1,12 +1,13 @@
 extends CharacterBody2D
 
-class_name Enemy # poner la variable rotation del sprite en 0
-				 # si el sprite no va a
+class_name Enemy 
 
 
 @export var velocidad: float = 60.0
 @export var gravedad: float = 900.0
 @onready var sprite: Sprite2D = $Sprite2D
+@export var rotable = true
+@export var flipable = false
 
 var direccion: int = -1
 var vivo: bool = true
@@ -27,7 +28,8 @@ func _physics_process(delta):
 		velocity.y = 0
 	
 	#rotacion
-	sprite.rotation += delta * 3 * direccion
+	if rotable:
+		sprite.rotation += delta * 3 * direccion
 	# movimiento horizontal
 	velocity.x = velocidad * direccion
 	move_and_slide()
@@ -36,6 +38,8 @@ func _physics_process(delta):
 	for i in range(get_slide_collision_count()):
 		var col = get_slide_collision(i)
 		if col.get_normal().x != 0:
+			if flipable:
+				sprite.flip_h = (direccion < 0)
 			direccion *= -1
 			break
 

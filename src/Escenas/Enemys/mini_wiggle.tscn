@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://bb7nuu7dvd7da"]
+
+[ext_resource type="Script" uid="uid://dbislubna4vv6" path="res://mini_wiggle.gd" id="1_7tnjw"]
+[ext_resource type="Texture2D" uid="uid://6jm7kfp1okcw" path="res://Assets/Enemigos/miniWiggle.png" id="2_d33rj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7tnjw"]
+size = Vector2(8, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d33rj"]
+size = Vector2(10, 22.5)
+
+[node name="MiniWiggle" type="CharacterBody2D"]
+script = ExtResource("1_7tnjw")
+rotable = false
+flipable = true
+
+[node name="interaction" type="Area2D" parent="."]
+position = Vector2(2, 16)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="interaction"]
+position = Vector2(0, 2)
+polygon = PackedVector2Array(-7, -3, -7, 8, 10, 8, 10, -3)
+
+[node name="HeadArea" type="Area2D" parent="."]
+position = Vector2(2, 9)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HeadArea"]
+position = Vector2(1, -2)
+shape = SubResource("RectangleShape2D_7tnjw")
+one_way_collision_margin = 0.0
+debug_color = Color(0.36694, 0.61612, 0, 0.42)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3, 20)
+scale = Vector2(0.75, 0.4375)
+texture = ExtResource("2_d33rj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 19)
+shape = SubResource("RectangleShape2D_d33rj")
+debug_color = Color(0.988295, 0, 0.303592, 0.42)
+
+[connection signal="body_entered" from="interaction" to="." method="_on_interaction_body_entered"]

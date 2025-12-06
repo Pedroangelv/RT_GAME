@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3dv6jf7yosds"
-path="res://.godot/imported/City Background.png-d73015602b075c0d993c64ae8e83fd12.ctex"
+uid="uid://6jm7kfp1okcw"
+path="res://.godot/imported/miniWiggle.png-a0ca9865514a3685d8c3d913095e863c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/CityAssets/City Background.png"
-dest_files=["res://.godot/imported/City Background.png-d73015602b075c0d993c64ae8e83fd12.ctex"]
+source_file="res://Assets/Enemigos/miniWiggle.png"
+dest_files=["res://.godot/imported/miniWiggle.png-a0ca9865514a3685d8c3d913095e863c.ctex"]
 
 [params]
 
