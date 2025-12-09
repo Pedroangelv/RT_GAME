@@ -12,7 +12,7 @@ class_name Enemy
 var direccion: int = -1
 var vivo: bool = true
 
-@onready var head_area: Area2D = $HeadArea
+@onready var head_area = $HeadArea
 
 func _ready():
 	head_area.connect("body_entered", Callable(self, "_on_head_area_body_entered"))

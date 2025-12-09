@@ -49,14 +49,15 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tlsat"]
+size = Vector2(20, 21)
 
 [node name="Doug" type="CharacterBody2D" groups=["jugador"]]
 script = ExtResource("1_tlsat")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_b3ihw")
-animation = &"Run"
-frame_progress = 0.382183
+animation = &"Idle"
+frame_progress = 0.126113
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_tlsat")
