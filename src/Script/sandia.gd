@@ -2,7 +2,9 @@ extends CharacterBody2D
 
 class_name Enemy 
 
-
+@export var rebote: float = 0.6
+@export var boss: bool = false
+@export var attemps_kill: int = 1
 @export var velocidad: float = 60.0
 @export var gravedad: float = 900.0
 @onready var sprite: Sprite2D = $Sprite2D
@@ -45,11 +47,21 @@ func _physics_process(delta):
 
 func _on_head_area_body_entered(body):
 	# si el jugador le cae encima, el enemigo muere
-	if vivo and body.is_in_group("jugador"):
-		_morir()
-		#hacer rebotar al jugador un poco
-		
-		body.rebote_en_enemigo()
+	if !boss:
+		if vivo and body.is_in_group("jugador"):
+			_morir()
+			#hacer rebotar al jugador un poco
+			
+			body.rebote_en_enemigo(rebote)
+	else:
+		if attemps_kill == 1 and vivo and body.is_in_group("jugador"):
+			_morir()
+			body.rebote_en_enemigo(rebote)
+		else:
+			if body.is_in_group("jugador"):
+				attemps_kill -= 1
+				body.rebote_en_enemigo(rebote)
+			
 
 func _morir():
 	$interaction/CollisionPolygon2D.set_deferred("disabled", true)

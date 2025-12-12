@@ -77,12 +77,12 @@ func dead():
 	get_tree().call_deferred("reload_current_scene")
 	
 
-func rebote_en_enemigo():
+func rebote_en_enemigo(rebote):
 	# Si el jugador está cayendo, reiniciamos su impulso hacia arriba
 	if velocity.y > 0:
-		velocity.y = JUMP_VELOCITY * 0.6  # rebote con 60% de la fuerza del salto normal
+		velocity.y = JUMP_VELOCITY * rebote  # rebote con 60% de la fuerza del salto normal
 	else:
-		velocity.y = JUMP_VELOCITY * 0.5  # si venía subiendo, rebote un poco más suave
+		velocity.y = JUMP_VELOCITY * (rebote - 0.1)  # si venía subiendo, rebote un poco más suave
 
 
 func update_animation(direction: float) -> void:
