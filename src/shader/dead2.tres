@@ -1,0 +1,6 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cedej5wxrgpx2"]
+
+[ext_resource type="Shader" uid="uid://b3kv24ykjhh45" path="res://shader/dead.tres" id="1_lyw8c"]
+
+[resource]
+shader = ExtResource("1_lyw8c")

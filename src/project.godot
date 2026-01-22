@@ -19,7 +19,7 @@ config/icon="uid://dgdc6bkv8kcxs"
 
 window/size/viewport_width=360
 window/size/viewport_height=240
-window/size/mode=3
+window/size/mode=2
 window/stretch/mode="canvas_items"
 window/stretch/aspect="ignore"
 
@@ -40,6 +40,11 @@ jump={
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":0,"pressure":0.0,"pressed":false,"script":null)
 ]
 }
+
+[layer_names]
+
+2d_physics/layer_1="suelo"
+2d_physics/layer_2="daño"
 
 [rendering]
 

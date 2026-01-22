@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://cne3vsc5rrgxi"]
+[gd_scene load_steps=13 format=3 uid="uid://cne3vsc5rrgxi"]
 
 [ext_resource type="Script" uid="uid://c4kx1u23hx4kr" path="res://Script/doug.gd" id="1_tlsat"]
 [ext_resource type="Texture2D" uid="uid://btncjedvqbnbq" path="res://Assets/Douglas/douglasIdle01.png" id="2_126hf"]
+[ext_resource type="Material" uid="uid://cedej5wxrgpx2" path="res://shader/dead2.tres" id="3_0v77t"]
 [ext_resource type="Texture2D" uid="uid://dyywri6cyc8ll" path="res://Assets/Douglas/douglasIdle02.png" id="3_rxyky"]
 [ext_resource type="Texture2D" uid="uid://b5t55f5ru61yo" path="res://Assets/Douglas/douglasIdle03.png" id="4_wyf8j"]
 [ext_resource type="Texture2D" uid="uid://32lpj7y1ejt" path="res://Assets/Douglas/douglasJump.png" id="5_d4uyr"]
@@ -51,8 +52,11 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tlsat"]
 size = Vector2(20, 21)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hryix"]
+
 [node name="Doug" type="CharacterBody2D" groups=["jugador"]]
 script = ExtResource("1_tlsat")
+put_shader = ExtResource("3_0v77t")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_b3ihw")
@@ -62,3 +66,12 @@ frame_progress = 0.126113
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_tlsat")
 debug_color = Color(0, 0, 0, 0.419608)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_hryix")
+debug_color = Color(2.21401e-06, 0.634722, 0.425712, 0.42)

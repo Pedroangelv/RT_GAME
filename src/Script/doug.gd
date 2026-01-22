@@ -5,7 +5,7 @@ class_name Player
 # Coyote time
 var coyote_time := 0.12
 var coyote_timer := 0.0
-var has_jumped := false
+
 
 # Jump buffer
 var jump_buffer_time := 0.25
@@ -16,15 +16,23 @@ var is_dead := false
 var is_jumping := false
 
 # Físicas
-const SPEED := 200.0
+const SPEED := 150.0
 const JUMP_VELOCITY := -350.0
 const SHORT_HOP_MULTIPLIER := 0.5
+const ACCEL := 12000.0
+const FRICTION := 10000.0
 
 #Jugador
+@export var put_shader: ShaderMaterial
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var area: Area2D = $"Area2D"
+
+func _ready():
+	area.body_entered.connect(_on_area_2d_body_entered)
 
 func _physics_process(delta: float) -> void:
 	if is_dead:
+		sprite.play("Idle")
 		velocity += get_gravity() * delta
 		move_and_slide()
 		return
@@ -38,7 +46,6 @@ func _physics_process(delta: float) -> void:
 	# Coyote time
 	if is_on_floor():
 		coyote_timer = coyote_time
-		has_jumped = false
 	else:
 		coyote_timer = max(0.0, coyote_timer - delta)
 
@@ -49,10 +56,10 @@ func _physics_process(delta: float) -> void:
 		jump_buffer_timer = max(0.0, jump_buffer_timer - delta)
 
 	# Saltar
-	if (is_on_floor() or coyote_timer > 0) and jump_buffer_timer > 0 and not has_jumped:
+	if (is_on_floor() or coyote_timer > 0.0) and jump_buffer_timer > 0.0:
 		velocity.y = JUMP_VELOCITY
 		is_jumping = true
-		has_jumped = true
+		coyote_timer = 0.0 # 🔥 consumir coyote time
 		jump_buffer_timer = 0.0
 
 	# Salto corto
@@ -61,10 +68,12 @@ func _physics_process(delta: float) -> void:
 
 	# Movimiento lateral
 	var direction := Input.get_axis("ui_left", "ui_right")
+
 	if direction != 0:
-		velocity.x = direction * SPEED
+		velocity.x = move_toward(velocity.x, direction * SPEED, ACCEL * delta)
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0.0, FRICTION * delta)
+
 	# --- CORNER CORRECTION ---
 	# Si el jugador golpea el techo (solo mientras sube)
 	move_and_slide()
@@ -72,8 +81,9 @@ func _physics_process(delta: float) -> void:
 
 func dead():
 	is_dead = true
+	sprite.material = put_shader
+	await get_tree().create_timer(0.2).timeout 
 	$CollisionShape2D.set_deferred("disabled", true)
-	queue_free()
 	get_tree().call_deferred("reload_current_scene")
 	
 
@@ -104,3 +114,7 @@ func _on_pitfall_body_entered(body: Node2D) -> void:
 	else:
 		body.queue_free()
 		
+
+
+func _on_area_2d_body_entered(_body: Node2D):
+	$".".dead()
