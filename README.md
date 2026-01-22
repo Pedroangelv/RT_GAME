@@ -1,6 +1,6 @@
 # RT_GAME
 Un plataformero sin nada especial, hecho por un estudiante de 11(ya me gradue🎆🎆), programador en proceso(Se cae la ia, se cae el desarrollo)
-Inspirado en el Real Team (Top Manias, Tattiextreme, SiendoRotoplas).
+Inspirado en el Real Team (Top Manias, Papá Oso, SiendoRotoplas).
 Cualquier parecido con la ficción es pura… realidad.
 ---
 ```text
