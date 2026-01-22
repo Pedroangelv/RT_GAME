@@ -39,10 +39,11 @@ func _physics_process(delta: float) -> void:
 		return
 
 	# Aplicar gravedad normal
-	if not is_on_floor():
-		velocity += get_gravity() * delta
+	if is_on_floor():
+		if is_jumping:
+			is_jumping = false
 	else:
-		is_jumping = false
+		velocity += get_gravity() * delta
 
 	# Coyote time
 	if is_on_floor():
@@ -68,12 +69,29 @@ func _physics_process(delta: float) -> void:
 		velocity.y *= SHORT_HOP_MULTIPLIER
 
 	# Movimiento lateral
-	var direction := Input.get_axis("ui_left", "ui_right")
+	var accel := ACCEL
+	var friction := FRICTION
+
+	if not is_on_floor():
+		accel *= 0.5
+		friction *= 0.5
+	
+
+	var direction := 0.0
+
+	if Input.is_action_pressed("ui_left"):
+		direction -= 1
+	if Input.is_action_pressed("ui_right"):
+		direction += 1
+
 
 	if direction != 0:
-		velocity.x = move_toward(velocity.x, direction * SPEED, ACCEL * delta)
+		velocity.x = move_toward(velocity.x, direction * SPEED, accel * delta)
 	else:
-		velocity.x = move_toward(velocity.x, 0.0, FRICTION * delta)
+		if is_on_floor():
+			velocity.x = 0
+		else:
+			velocity.x = move_toward(velocity.x, 0.0, friction * delta)
 
 	# --- CORNER CORRECTION ---
 	# Si el jugador golpea el techo (solo mientras sube)
