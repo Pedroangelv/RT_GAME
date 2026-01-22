@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=4 uid="uid://bxtu74svpxv0u"]
+[gd_scene load_steps=8 format=4 uid="uid://bxtu74svpxv0u"]
 
+[ext_resource type="Script" uid="uid://cdk0rsh15xfgy" path="res://fire_1_1.gd" id="1_rnxwu"]
 [ext_resource type="TileSet" uid="uid://cgio1nljtjhpr" path="res://fondo.tres" id="1_sy8fe"]
 [ext_resource type="PackedScene" uid="uid://cne3vsc5rrgxi" path="res://Escenas/Charecters/doug.tscn" id="2_r8yyi"]
 [ext_resource type="PackedScene" uid="uid://b2hxyffcjn02d" path="res://Escenas/UI/botones.tscn" id="3_c4ylr"]
@@ -10,6 +11,7 @@
 size = Vector2(29, 470)
 
 [node name="FIRE 1-1" type="Node2D"]
+script = ExtResource("1_rnxwu")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAD5/wgAAQAGAA4AAAD6/wgAAQAHAA4AAAD7/wgAAQAIAA4AAAD8/wgAAQAGAA4AAAD9/wgAAQAHAA4AAAD+/wgAAQAIAA4AAAD2/wgAAQAGAA4AAAD3/wgAAQAHAA4AAAD4/wgAAQAIAA4AAAD2/wYAAQAEAA0AAAD2/wcAAQAEAA4AAAD3/wYAAQAFAA0AAAD3/wcAAQAFAA4AAACKAA0AAAAJAAgAAACLAA0AAAAMAAgAAACMAA0AAAAMAAgAAACKAAwAAAAJAAgAAACLAAwAAAAMAAgAAACKAAsAAAAJAAgAAACLAAsAAAAMAAgAAACMAAwAAAAMAAgAAACNAA0AAAAMAAgAAACKAAoAAAAJAAcAAACLAAoAAAAMAAcAAACMAAsAAAAMAAgAAACNAAwAAAAMAAgAAACOAA0AAAAMAAgAAACWABAAAQAGAA4AAACXABAAAQAHAA4AAACYABAAAQAIAA4AAAClABAAAQAGAA4AAACmABAAAQAHAA4AAACnABAAAQAIAA4AAACzABAAAQAGAA4AAAC0ABAAAQAHAA4AAAC1ABAAAQAIAA4AAAC/ABAAAQAGAA4AAADAABAAAQAHAA4AAADBABAAAQAIAA4AAAA=")
@@ -21,7 +23,7 @@ tile_map_data = PackedByteArray("AAAAAAkAAAAOAAwAAAABAAkAAAAOAAwAAAACAAkAAAAOAAw
 tile_set = ExtResource("1_sy8fe")
 
 [node name="Doug" parent="TileMapLayer" instance=ExtResource("2_r8yyi")]
-position = Vector2(32, 129)
+position = Vector2(31, 118)
 
 [node name="Camera2D" type="Camera2D" parent="TileMapLayer/Doug"]
 
@@ -83,4 +85,5 @@ position = Vector2(1316, -19)
 
 [node name="Wiggles" parent="TileMapLayer" instance=ExtResource("5_c4ylr")]
 position = Vector2(2550, 191)
+attemps_kill = 7
 velocidad = 240.0

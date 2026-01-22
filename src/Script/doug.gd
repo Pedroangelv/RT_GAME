@@ -29,6 +29,7 @@ const FRICTION := 10000.0
 
 func _ready():
 	area.body_entered.connect(_on_area_2d_body_entered)
+	
 
 func _physics_process(delta: float) -> void:
 	if is_dead:
