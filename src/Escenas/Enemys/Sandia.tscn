@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b5cos4etflr5n" path="res://Assets/Enemigos/Watermelon.png" id="2_4e17v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ebmx"]
-size = Vector2(16, 5)
+size = Vector2(12, 5)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0ebmx"]
 radius = 7.0

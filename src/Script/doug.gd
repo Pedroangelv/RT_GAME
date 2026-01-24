@@ -3,7 +3,7 @@ extends CharacterBody2D
 class_name Player
 # --- CONFIGURACIÓN ---
 # Coyote time
-var coyote_time := 0.12
+var coyote_time := 0.2
 var coyote_timer := 0.0
 
 
@@ -17,10 +17,14 @@ var is_jumping := false
 
 # Físicas
 const SPEED := 150.0
-const JUMP_VELOCITY := -350.0
+const JUMP_VELOCITY := -355.0
 const SHORT_HOP_MULTIPLIER := 0.5
 const ACCEL := 12000.0
 const FRICTION := 10000.0
+
+var jump_hold_time := 0.0
+const MAX_JUMP_HOLD := 0.15
+var jump_was_cut := false
 
 #Jugador
 @export var put_shader: ShaderMaterial
@@ -37,11 +41,14 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 		move_and_slide()
 		return
-
+	if Input.is_action_pressed("jump"):
+		jump_hold_time += delta
+	else:
+		jump_hold_time = 0.0
 	# Aplicar gravedad normal
 	if is_on_floor():
-		if is_jumping:
-			is_jumping = false
+		is_jumping = false
+		jump_was_cut = false
 	else:
 		velocity += get_gravity() * delta
 
@@ -56,18 +63,20 @@ func _physics_process(delta: float) -> void:
 		jump_buffer_timer = jump_buffer_time
 	else:
 		jump_buffer_timer = max(0.0, jump_buffer_timer - delta)
-
+		
 	# Saltar
-	if (is_on_floor() or coyote_timer > 0.0) and jump_buffer_timer > 0.0:
+	if jump_buffer_timer > 0.0 and (is_on_floor() or coyote_timer > 0.0) and not is_jumping:
 		velocity.y = JUMP_VELOCITY
 		is_jumping = true
-		coyote_timer = 0.0 # 🔥 consumir coyote time
+		jump_was_cut = false
+		coyote_timer = 0.0
 		jump_buffer_timer = 0.0
-
 	# Salto corto
-	if Input.is_action_just_released("jump") and velocity.y < 0:
-		velocity.y *= SHORT_HOP_MULTIPLIER
-
+	if is_jumping and velocity.y < 0 and not jump_was_cut:
+		if not Input.is_action_pressed("jump"):
+			velocity.y *= SHORT_HOP_MULTIPLIER
+			jump_was_cut = true
+			
 	# Movimiento lateral
 	var accel := ACCEL
 	var friction := FRICTION
@@ -111,7 +120,7 @@ func rebote_en_enemigo(rebote):
 	if velocity.y > 0:
 		velocity.y = JUMP_VELOCITY * rebote  # rebote con 60% de la fuerza del salto normal
 	else:
-		velocity.y = JUMP_VELOCITY * (rebote - 0.1)  # si venía subiendo, rebote un poco más suave
+		velocity.y = JUMP_VELOCITY * rebote # si venía subiendo, rebote un poco más suave
 
 
 func update_animation(direction: float) -> void:
@@ -135,5 +144,6 @@ func _on_pitfall_body_entered(body: Node2D) -> void:
 		
 
 
-func _on_area_2d_body_entered(_body: Node2D):
+func _on_area_2d_body_entered(_body):
 	$".".dead()
+	

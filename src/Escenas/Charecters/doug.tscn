@@ -53,6 +53,7 @@ animations = [{
 size = Vector2(20, 21)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hryix"]
+size = Vector2(20, 22)
 
 [node name="Doug" type="CharacterBody2D" groups=["jugador"]]
 script = ExtResource("1_tlsat")
@@ -68,7 +69,7 @@ shape = SubResource("RectangleShape2D_tlsat")
 debug_color = Color(0, 0, 0, 0.419608)
 
 [node name="Area2D" type="Area2D" parent="."]
-collision_layer = 0
+collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]

@@ -8,8 +8,8 @@ class_name Enemy
 @export var velocidad: float = 60.0
 @export var gravedad: float = 900.0
 @onready var sprite: Sprite2D = $Sprite2D
-@export var rotable = true
-@export var flipable = false
+@export var rotable: bool = true
+@export var flipable: bool = false
 
 var direccion: int = -1
 var vivo: bool = true
@@ -70,6 +70,7 @@ func _morir():
 	$CollisionShape2D.set_deferred("disabled", true)
 	head_area.set_deferred("monitoring", false)
 	
+	
 	# animación de muerte simple (cae)
 	var tween = create_tween()
 	tween.tween_property(self, "position:y", position.y - 10, 0.1)
@@ -82,3 +83,4 @@ func _on_interaction_body_entered(body: Node2D) -> void:
 		return
 	if body.is_in_group("jugador"):
 		body.dead()
+	

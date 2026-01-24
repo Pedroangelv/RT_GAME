@@ -816,7 +816,7 @@ one_way_collision_margin = 0.0
 debug_color = Color(0.141176, 0, 0.701961, 0.419608)
 
 [node name="Doug" parent="MundoTiles" instance=ExtResource("2_lh4tq")]
-position = Vector2(-231, 99)
+position = Vector2(-238.2, 104.59)
 
 [node name="Camera2D" type="Camera2D" parent="MundoTiles/Doug"]
 
@@ -865,12 +865,12 @@ debug_color = Color(0.69902, 0.492801, 0, 0.42)
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(1.1, 1)
+motion_scale = Vector2(1.05, 1)
 motion_mirroring = Vector2(1360, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
-position = Vector2(351, 4)
-scale = Vector2(1.16607, 1)
+position = Vector2(377.5, 4)
+scale = Vector2(1.21339, 1)
 texture = ExtResource("11_1slf1")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
