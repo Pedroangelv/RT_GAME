@@ -21,6 +21,7 @@ Es un proyecto experimental hecho en Blazium Engine un fork de Godot Engine 4.3.
 Dejo algo de documentacion(Hecha por IA)(No es la oficial):
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/Pedroangelv/RT_GAME)
 ---
+Todo lo siguente es generado por IA(me dio pereza terminarlo)
 🚀 Descargar, estudiar y modificar el proyecto
 
 Este proyecto es personal, hecho con fines educativos.
