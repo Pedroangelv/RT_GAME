@@ -23,20 +23,20 @@ func _physics_process(delta):
 	if not vivo:
 		return
 	
-	# aplicar gravedad
+	# Apply gravity
 	if not is_on_floor():
 		velocity.y += gravedad * delta
 	else:
 		velocity.y = 0
 	
-	#rotacion
+	# Rotation
 	if rotable:
 		sprite.rotation += delta * 3 * direccion
-	# movimiento horizontal
+	# Horizontal movement
 	velocity.x = velocidad * direccion
 	move_and_slide()
 
-	# si choca con algo a los lados, cambiar dirección
+	# Change direction if enemy crush with a wall or smth
 	for i in range(get_slide_collision_count()):
 		var col = get_slide_collision(i)
 		if col.get_normal().x != 0:
@@ -46,13 +46,14 @@ func _physics_process(delta):
 			break
 
 func _on_head_area_body_entered(body):
-	# si el jugador le cae encima, el enemigo muere
+	# Death of the enemy if jump on his head
 	if !boss:
 		if vivo and body.is_in_group("jugador"):
 			_morir()
-			#hacer rebotar al jugador un poco
+			# Bounce the player when they jump on an enemy.
 			
 			body.rebote_en_enemigo(rebote)
+	#If enemy is boss, substract atempts to kill until 0
 	else:
 		if attemps_kill == 1 and vivo and body.is_in_group("jugador"):
 			_morir()
@@ -71,11 +72,14 @@ func _morir():
 	head_area.set_deferred("monitoring", false)
 	
 	
-	# animación de muerte simple (cae)
-	var tween = create_tween()
-	tween.tween_property(self, "position:y", position.y - 10, 0.1)
-	tween.tween_property(self, "position:y", position.y + 40, 0.4)
-	tween.tween_callback(Callable(self, "queue_free"))
+	# Boss dead animation
+	if self.boss and self.has_method("special_animation"):
+		self.special_animation()
+	else: #Regular enemy dead animation
+		var tween = create_tween()
+		tween.tween_property(self, "position:y", position.y - 10, 0.1)
+		tween.tween_property(self, "position:y", position.y + 40, 0.4)
+		tween.tween_callback(Callable(self, "queue_free"))
 
 
 func _on_interaction_body_entered(body: Node2D) -> void:
@@ -83,4 +87,6 @@ func _on_interaction_body_entered(body: Node2D) -> void:
 		return
 	if body.is_in_group("jugador"):
 		body.dead()
-	
+
+func special_animation():
+	pass

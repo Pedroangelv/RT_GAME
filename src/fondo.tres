@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://cgio1nljtjhpr"]
+[gd_resource type="TileSet" format=3 uid="uid://cgio1nljtjhpr"]
 
 [ext_resource type="Texture2D" uid="uid://cjlvlrg5l6tda" path="res://Assets/kenneyTilemap/chao_.png" id="1_2ibst"]
 [ext_resource type="Texture2D" uid="uid://drar6q83cv1ub" path="res://Assets/CityAssets/tileset_city_free.png" id="2_0y5pg"]
