@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://6jm7kfp1okcw" path="res://Assets/Enemigos/miniWiggle.png" id="2_d33rj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7tnjw"]
-size = Vector2(10, 4.125)
+size = Vector2(9, 4.0625)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d33rj"]
 size = Vector2(9, 22.5)
@@ -19,9 +19,9 @@ position = Vector2(2, 16)
 collision_layer = 3
 collision_mask = 3
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="interaction" unique_id=548519986]
-position = Vector2(1, 2)
-polygon = PackedVector2Array(-7, -8, -7, 8, 8, 8, 8, -8)
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="interaction" unique_id=1925746627]
+position = Vector2(2, 3)
+polygon = PackedVector2Array(-6, 6, -8, 0, -5, -9, 5, -9, 8, 0, 6, 6)
 
 [node name="HeadArea" type="Area2D" parent="." unique_id=105036015]
 position = Vector2(2, 9)

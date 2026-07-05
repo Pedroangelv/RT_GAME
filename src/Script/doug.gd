@@ -30,12 +30,23 @@ var jump_was_cut := false
 @export var put_shader: ShaderMaterial
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var area: Area2D = $"Area2D"
+@onready var animations: AnimationPlayer = $AnimationPlayer
+var in_cutscene = false
+
+func play_run():
+	sprite.play("Run")
+func play_idle():
+	sprite.play("Idle")
+func play_jump():
+	sprite.play("Jump")
 
 func _ready():
 	area.body_entered.connect(_on_area_2d_body_entered)
 	
 
 func _physics_process(delta: float) -> void:
+	if in_cutscene:
+		return
 	if is_dead:
 		sprite.play("Idle")
 		velocity += get_gravity() * delta
@@ -128,7 +139,7 @@ func update_animation(direction: float) -> void:
 		sprite.play("Idle")
 		return
 	if is_jumping:
-		sprite.play("Jump")
+		sprite.play(&"Jump")
 	elif direction != 0:
 		sprite.flip_h = (direction < 0)
 		sprite.play("Run")
@@ -147,3 +158,11 @@ func _on_pitfall_body_entered(body: Node2D) -> void:
 func _on_area_2d_body_entered(_body):
 	$".".dead()
 	
+
+
+func _on_animation_activator_body_entered(body: Node2D) -> void:
+	if body.is_in_group("jugador"):
+		in_cutscene = true
+		animations.play("fire1")
+		await animations.animation_finished
+		in_cutscene = false

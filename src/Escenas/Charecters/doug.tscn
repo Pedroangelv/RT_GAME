@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cne3vsc5rrgxi"]
+[gd_scene format=3 uid="uid://cne3vsc5rrgxi"]
 
 [ext_resource type="Script" uid="uid://c4kx1u23hx4kr" path="res://Script/doug.gd" id="1_tlsat"]
 [ext_resource type="Texture2D" uid="uid://btncjedvqbnbq" path="res://Assets/Douglas/douglasIdle01.png" id="2_126hf"]
@@ -22,7 +22,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("4_wyf8j")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Idle",
 "speed": 1.0
 }, {
@@ -30,7 +30,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("5_d4uyr")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Jump",
 "speed": 5.0
 }, {
@@ -44,10 +44,82 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("8_ixd2t")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Run",
 "speed": 6.0
 }]
+
+[sub_resource type="Animation" id="Animation_hryix"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_0v77t"]
+resource_name = "fire1"
+length = 3.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.6666666, 1.7666667, 2.1333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"play_run"
+}, {
+"args": [],
+"method": &"play_idle"
+}, {
+"args": [],
+"method": &"play_run"
+}, {
+"args": [],
+"method": &"play_jump"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.6666666, 1.7666667, 2, 2.2666667, 2.4666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(3250, 213), Vector2(3365, 213), Vector2(3365, 213), Vector2(3380, 213), Vector2(3400, 190), Vector2(3430, 160)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2xpya"]
+_data = {
+&"RESET": SubResource("Animation_hryix"),
+&"fire1": SubResource("Animation_0v77t")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tlsat"]
 size = Vector2(20, 21)
@@ -55,24 +127,28 @@ size = Vector2(20, 21)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hryix"]
 size = Vector2(20, 22)
 
-[node name="Doug" type="CharacterBody2D" groups=["jugador"]]
+[node name="Doug" type="CharacterBody2D" unique_id=122285081 groups=["jugador"]]
+position = Vector2(3265, 213)
 script = ExtResource("1_tlsat")
 put_shader = ExtResource("3_0v77t")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1473778264]
 sprite_frames = SubResource("SpriteFrames_b3ihw")
 animation = &"Idle"
-frame_progress = 0.126113
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=710318273]
+reset_on_save = false
+libraries/ = SubResource("AnimationLibrary_2xpya")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=269140856]
 shape = SubResource("RectangleShape2D_tlsat")
 debug_color = Color(0, 0, 0, 0.419608)
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=1771641607]
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1391032754]
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_hryix")
 debug_color = Color(2.21401e-06, 0.634722, 0.425712, 0.42)

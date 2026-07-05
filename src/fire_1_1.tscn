@@ -10,6 +10,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r8yyi"]
 size = Vector2(29, 470)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7rkrg"]
+size = Vector2(54, 172)
+
 [node name="FIRE 1-1" type="Node2D" unique_id=633118818]
 script = ExtResource("1_rnxwu")
 
@@ -24,7 +27,7 @@ tile_map_data = PackedByteArray("AAAAAAkAAAAOAAwAAAABAAkAAAAOAAwAAAACAAkAAAAOAAw
 tile_set = ExtResource("1_sy8fe")
 
 [node name="Doug" parent="TileMapLayer" unique_id=119715871 instance=ExtResource("2_r8yyi")]
-position = Vector2(31, 118)
+position = Vector2(0, 0)
 
 [node name="Camera2D" type="Camera2D" parent="TileMapLayer/Doug" unique_id=208577317]
 
@@ -86,7 +89,15 @@ position = Vector2(1316, -19)
 
 [node name="Wiggles" parent="TileMapLayer" unique_id=761848608 instance=ExtResource("5_c4ylr")]
 position = Vector2(2550, 191)
-attemps_kill = 5
+attemps_kill = 1
 velocidad = 240.0
 
+[node name="Animation_activator" type="Area2D" parent="TileMapLayer" unique_id=1292123071]
+position = Vector2(3217, 167)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/Animation_activator" unique_id=268653875]
+position = Vector2(20, -30)
+shape = SubResource("RectangleShape2D_7rkrg")
+
 [connection signal="tree_exited" from="TileMapLayer/Wiggles" to="." method="_on_wiggles_tree_exited"]
+[connection signal="body_entered" from="TileMapLayer/Animation_activator" to="TileMapLayer/Doug" method="_on_animation_activator_body_entered"]
